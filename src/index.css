@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-luxury-black: #111111;
+  --color-luxury-gold: #C9A227;
+  --color-luxury-blue: #0A4D8C;
+  --color-luxury-blue-dark: #073562;
+  --color-luxury-wood: #5C3A21;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: #1a1a1a;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+.pulse-ring-whatsapp {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 77, 140, 0.1);
+}
+
+/* Premium Gold Gradient */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C9A227 0%, #E6C153 50%, #9F7E1B 100%);
+}
+
+.bg-wood-gradient {
+  background: linear-gradient(135deg, #3E2511 0%, #5C3A21 50%, #2A170B 100%);
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(135deg, #0A4D8C 0%, #1063B0 50%, #052F57 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A227 0%, #E6C153 50%, #9F7E1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Wood texture helper */
+.wood-accent-line {
+  height: 4px;
+  background: linear-gradient(90deg, #3E2511, #C9A227, #3E2511);
+}
+
+/* Custom ripple / shine effects */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  opacity: 0;
+}
+
+.hover-shine:hover::after {
+  opacity: 1;
+  left: 125%;
+}
+
